@@ -38,6 +38,31 @@ Abra [http://localhost:3000](http://localhost:3000).
 - `npm run build` — build de produção
 - `npm run start` — servidor de produção
 
+## Deploy (EasyPanel + Docker)
+
+O app usa `output: "standalone"` e o `Dockerfile` na raiz.
+
+1. No EasyPanel: **App → Create → Dockerfile** (ou Git + Dockerfile).
+2. Porta do serviço: **3000**.
+3. **Build Args** (obrigatórios no build do Next):
+   - `NEXT_PUBLIC_SITE_URL` → `https://ubari.com.br`
+   - `NEXT_PUBLIC_GTM_ID` → (opcional)
+4. **Environment** (runtime):
+   - `KOMMO_WEBHOOK_URL`
+   - `LEAD_EMAIL_WEBHOOK_URL`
+   - `LEAD_EMAIL_TO`
+   - `META_CAPI_ENABLED`
+5. Domínio / SSL pelo EasyPanel; health check em `/`.
+
+Build local de teste:
+
+```bash
+docker build -t ubari \
+  --build-arg NEXT_PUBLIC_SITE_URL=https://ubari.com.br \
+  .
+docker run --rm -p 3000:3000 ubari
+```
+
 ## Landing pages
 
 `/lp/ansiedade-e-burnout` — sem menu de saída. Layout em `src/app/lp/`.
