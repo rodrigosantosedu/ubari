@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#E8DFD0"/>
+  <rect x="153.6" y="86.4" width="1612.8" height="907.1999999999999" fill="none" stroke="#C9A06A" stroke-width="2" opacity="0.5"/>
+  <circle cx="960.0" cy="453.59999999999997" r="86.4" fill="none" stroke="#C9A06A" stroke-width="2"/>
+  <path d="M960.0 594.0 V378.0 M960.0 518.4 L895.2 432.0 M960.0 518.4 L1024.8 432.0" stroke="#C9A06A" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <text x="960.0" y="777.6" text-anchor="middle" font-family="Georgia,serif" font-size="43.2" fill="#3E372D" opacity="0.7">Hero Poster</text>
+  <text x="960.0" y="864.0" text-anchor="middle" font-family="system-ui,sans-serif" font-size="27.0" fill="#9D7248">Placeholder — foto real em breve</text>
+</svg>

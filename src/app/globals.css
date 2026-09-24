@@ -1,0 +1,215 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Ubari × ritmo Kurotel
+  Fundo branco/creme claro · tipografia serifada de impacto · muito respiro
+*/
+
+:root {
+  --ubari-white: #ffffff;
+  --ubari-cream: #f7f5f0;
+  --ubari-sand: #ece7df;
+  --ubari-ink: #1a1a1a;
+  --ubari-mute: #5c5c5c;
+  --ubari-line: rgba(26, 26, 26, 0.1);
+  --ubari-gold: #c9a06a;
+  --ubari-bronze: #9d7248;
+  --ubari-amber: #e99c18;
+  --ubari-forest: #1a1a1a;
+  --ubari-green: #3eae6a;
+  --ubari-green-hover: #34965a;
+  --ubari-muted: var(--ubari-mute);
+
+  /* aliases */
+  --ubari-paper: var(--ubari-cream);
+  --ubari-mist: var(--ubari-sand);
+  --ubari-warm: var(--ubari-cream);
+  --ubari-clay: var(--ubari-gold);
+  --ubari-clay-deep: var(--ubari-bronze);
+  --ubari-moss: var(--ubari-green);
+  --ubari-moss-hover: var(--ubari-green-hover);
+  --ubari-line-strong: rgba(26, 26, 26, 0.18);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply bg-white text-ubari-ink antialiased;
+    font-family: var(--font-sans), system-ui, sans-serif;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ubari-bronze);
+    outline-offset: 3px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif), Georgia, serif;
+    font-weight: 400;
+    color: var(--ubari-ink);
+  }
+
+  a {
+    transition: color 0.25s ease, opacity 0.25s ease;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--ubari-gold) 35%, transparent);
+  }
+}
+
+@layer components {
+  .container-ubari {
+    @apply mx-auto w-full max-w-[1200px] px-6 md:px-10;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-36;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .eyebrow {
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ubari-bronze);
+  }
+
+  .rule {
+    height: 1px;
+    width: 48px;
+    background: var(--ubari-amber);
+  }
+
+  .btn-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--ubari-green);
+    color: #fff;
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    transition: background 0.25s ease;
+  }
+
+  .btn-cta:hover {
+    background: var(--ubari-green-hover);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    color: #fff;
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    transition: background 0.25s ease, border-color 0.25s ease;
+  }
+
+  .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #fff;
+  }
+
+  .btn-ghost-dark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--ubari-ink);
+    color: var(--ubari-ink);
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    transition: background 0.25s ease, color 0.25s ease;
+  }
+
+  .btn-ghost-dark:hover {
+    background: var(--ubari-ink);
+    color: #fff;
+  }
+
+  .btn-text {
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ubari-ink);
+    border-bottom: 1px solid var(--ubari-ink);
+    padding-bottom: 2px;
+  }
+
+  .btn-text:hover {
+    color: var(--ubari-bronze);
+    border-color: var(--ubari-bronze);
+  }
+
+  .link-bronze {
+    color: var(--ubari-bronze);
+    text-underline-offset: 3px;
+  }
+
+  .link-bronze:hover {
+    text-decoration: underline;
+  }
+
+  .kuro-mark {
+    width: 56px;
+    height: 56px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.35;
+  }
+
+  .watermark-tree {
+    pointer-events: none;
+    position: absolute;
+    user-select: none;
+    opacity: 0.05;
+  }
+}
+
+@layer utilities {
+  .sr-only-focusable:not(:focus):not(:focus-within) {
+    @apply sr-only;
+  }
+}
