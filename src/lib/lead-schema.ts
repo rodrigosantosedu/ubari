@@ -10,6 +10,7 @@ export const leadSchema = z
     name: z.string().min(2, "Informe seu nome"),
     whatsapp: z.string().min(8, "Informe um WhatsApp válido"),
     email: z.string().email("E-mail inválido"),
+    message: z.string().optional(),
     bestTime: z.enum(["manha", "tarde", "noite", "qualquer"]),
     lgpd: z.literal(true, {
       errorMap: () => ({ message: "É necessário aceitar o consentimento" }),

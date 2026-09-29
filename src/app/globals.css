@@ -183,6 +183,38 @@
     border-color: var(--ubari-bronze);
   }
 
+  .btn-outline-light,
+  .btn-outline-dark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    border-width: 1px;
+    border-style: solid;
+    padding: 12px 22px;
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: opacity 0.25s ease;
+  }
+
+  .btn-outline-light {
+    border-color: #fff;
+    color: #fff;
+  }
+
+  .btn-outline-dark {
+    border-color: #000;
+    color: #000;
+  }
+
+  .btn-outline-light:hover,
+  .btn-outline-dark:hover {
+    opacity: 0.6;
+  }
+
   .link-bronze {
     color: var(--ubari-bronze);
     text-underline-offset: 3px;

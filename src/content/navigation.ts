@@ -1,3 +1,30 @@
+export const desktopNav = [
+  {
+    label: "Atendimentos",
+    href: "/atendimentos/adultos",
+    children: [
+      {
+        label: "Terapia para adultos",
+        description: "Escuta ética, pontualidade e um espaço para desacelerar.",
+        href: "/atendimentos/adultos",
+      },
+      {
+        label: "Infantil e família",
+        description: "De 3 a 9 anos, com retorno aos pais a cada 4 encontros.",
+        href: "/atendimentos/infantil-e-familia",
+      },
+      {
+        label: "Online",
+        description: "Em português, no Brasil e no exterior.",
+        href: "/atendimentos/online",
+      },
+    ],
+  },
+  { label: "O espaço", href: "/espaco" },
+  { label: "A Ubari", href: "/a-ubari" },
+  { label: "Blog", href: "/blog" },
+] as const;
+
 export const mainNav = [
   { label: "A Ubari", href: "/a-ubari" },
   {
@@ -17,29 +44,26 @@ export const secondaryNav = [
   { label: "Terapia para Adultos", href: "/atendimentos/adultos" },
   { label: "Infantil & Família", href: "/atendimentos/infantil-e-familia" },
   { label: "Online (Brasil e Exterior)", href: "/atendimentos/online" },
-  { label: "Como funciona", href: "/#como-funciona" },
+  { label: "Como funciona", href: "/#personalizacao" },
   { label: "Nossa história", href: "/a-ubari" },
-  { label: "Perguntas frequentes", href: "/#faq" },
-  { label: "Contato", href: "/contato" },
+  { label: "Contato", href: "/#contato" },
   { label: "Trabalhe conosco", href: "/contato#trabalhe-conosco" },
   { label: "Política de Privacidade", href: "/politica-de-privacidade" },
 ] as const;
 
 export const footerNav = {
-  instituicao: [
+  mapa: [
+    { label: "Home", href: "/" },
     { label: "A Ubari", href: "/a-ubari" },
-    { label: "O Espaço", href: "/espaco" },
+    { label: "O espaço", href: "/espaco" },
     { label: "Blog", href: "/blog" },
+    { label: "Trabalhe conosco", href: "/contato#trabalhe-conosco" },
+    { label: "Política de Privacidade", href: "/politica-de-privacidade" },
   ],
   atendimentos: [
     { label: "Adultos", href: "/atendimentos/adultos" },
-    { label: "Infantil & Família", href: "/atendimentos/infantil-e-familia" },
+    { label: "Infantil e família", href: "/atendimentos/infantil-e-familia" },
     { label: "Online", href: "/atendimentos/online" },
     { label: "Agendar sessão", href: "/agendar" },
-  ],
-  suporte: [
-    { label: "Contato", href: "/contato" },
-    { label: "FAQ", href: "/#faq" },
-    { label: "Política de Privacidade", href: "/politica-de-privacidade" },
   ],
 } as const;

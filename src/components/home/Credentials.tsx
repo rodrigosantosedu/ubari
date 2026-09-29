@@ -1,57 +1,44 @@
-import { site } from "@/content/site";
-import { FadeIn } from "@/components/ui/FadeIn";
+import { credentials } from "@/content/home";
 
 export function Credentials() {
-  const items = [
-    { value: "CRP-06", label: "Profissionais registrados" },
-    { value: site.responsibleTechnician.crp, label: "Responsável técnico" },
-    { value: "[ANOS]+", label: "Anos de atuação" },
-    { value: "Google", label: "Avaliações externas", href: site.googleReviewsUrl },
-  ];
-
   return (
-    <section className="border-y border-ubari-line bg-white py-16 md:py-20">
-      <div className="container-ubari">
-        <FadeIn>
-          <p className="mb-12 text-center font-sans text-[10px] uppercase tracking-[0.28em] text-ubari-mute">
-            Confiança e credenciais
-          </p>
-          <ul className="grid gap-10 text-center sm:grid-cols-2 lg:grid-cols-4">
-            {items.map((c) => (
-              <li key={c.label}>
-                {c.href ? (
-                  <a
-                    href={c.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-serif text-2xl text-ubari-ink hover:text-ubari-bronze md:text-3xl"
-                  >
-                    {c.value}
-                  </a>
-                ) : (
-                  <p className="font-serif text-2xl text-ubari-ink md:text-3xl">
-                    {c.value}
-                  </p>
-                )}
-                <p className="mt-2 font-sans text-[11px] uppercase tracking-[0.15em] text-ubari-mute">
-                  {c.label}
-                </p>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-10 text-center font-sans text-xs text-ubari-mute/70">
-            Não reproduzimos depoimentos de pacientes.{" "}
-            <a
-              href={site.googleReviewsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline-offset-2 hover:underline"
-            >
-              Ver avaliações no Google
-            </a>
-          </p>
-        </FadeIn>
+    <section className="bg-white py-16">
+      <div className="mx-[5%] min-[1920px]:mx-[10%]">
+        <p className="font-sans text-[10px] font-medium uppercase tracking-[3px]">
+          Credenciais
+        </p>
       </div>
+
+      <ul className="mx-[5%] mt-8 grid grid-cols-3 gap-2 min-[480px]:hidden">
+        {credentials.map((item) => (
+          <Item key={item.label} {...item} />
+        ))}
+      </ul>
+
+      <ul className="mx-[5%] mt-8 hidden grid-cols-4 gap-6 min-[480px]:grid min-[992px]:hidden">
+        {credentials.map((item) => (
+          <Item key={item.label} {...item} />
+        ))}
+      </ul>
+
+      <ul className="mt-8 hidden items-stretch gap-10 overflow-hidden px-[5%] min-[992px]:flex min-[1920px]:px-[10%]">
+        {credentials.map((item) => (
+          <li key={item.label} className="min-w-[180px] shrink-0">
+            <Item {...item} />
+          </li>
+        ))}
+      </ul>
     </section>
+  );
+}
+
+function Item({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="flex h-[120px] flex-col items-center justify-center border border-black/10 px-3 text-center">
+      <span className="font-serif text-2xl">{value}</span>
+      <span className="mt-2 font-sans text-[10px] uppercase leading-4 tracking-[1px] text-[#636768]">
+        {label}
+      </span>
+    </div>
   );
 }

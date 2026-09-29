@@ -1,45 +1,65 @@
 import { Hero } from "@/components/home/Hero";
-import { Manifesto } from "@/components/home/Manifesto";
-import { PainMoments } from "@/components/home/PainMoments";
-import { Services } from "@/components/home/Services";
-import { History } from "@/components/home/History";
-import { HowItWorks } from "@/components/home/HowItWorks";
+import { SplitBand } from "@/components/home/SplitBand";
+import { FullBleed } from "@/components/home/FullBleed";
 import { Differentials } from "@/components/home/Differentials";
 import { SpaceGallery } from "@/components/home/SpaceGallery";
 import { Credentials } from "@/components/home/Credentials";
-import { BlogPreview } from "@/components/home/BlogPreview";
-import { FaqSection } from "@/components/home/FaqSection";
-import { ContactCta } from "@/components/home/ContactCta";
-import { faq } from "@/content/faq";
-import { buildFaqSchema } from "@/lib/schema";
+import { site } from "@/content/site";
+import { howItWorks, services } from "@/content/home";
 
-/**
- * Home no ritmo da Kurotel:
- * Hero → Filosofia → Momentos → Atendimentos → História →
- * Personalização → Diferenciais → Espaço → Credenciais →
- * Conteúdo → FAQ → Fale conosco
- */
 export default function HomePage() {
-  const faqSchema = buildFaqSchema(faq);
+  const servicesText = services.map((service) => service.summary).join(" ");
+  const howText = howItWorks
+    .map((step) => step.description)
+    .join(" ");
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
       <Hero />
-      <Manifesto />
-      <PainMoments />
-      <Services />
-      <History />
-      <HowItWorks />
+      <SplitBand
+        compact
+        title={site.manifesto}
+        body={site.puv}
+        image="/images/espaco/fachada.png"
+        alt="Fachada do casarão da Ubari no Taquaral"
+        imageSide="right"
+        href="/a-ubari"
+        cta="Conheça a Ubari"
+      />
+      <FullBleed
+        eyebrow="Ubari · Taquaral, Campinas"
+        title={site.tagline}
+        body="Ambiente humano, vínculo contínuo e cuidado individualizado. Presencial na Lagoa do Taquaral e online no Brasil e no exterior."
+        image="/images/espaco/sacada.png"
+        alt="Sacada e área externa da Ubari"
+        primaryHref="/a-ubari"
+        primaryLabel="Conheça a Ubari"
+        secondaryHref="/#contato"
+        secondaryLabel="Fale conosco"
+      />
+      <SplitBand
+        id="atendimentos"
+        title="Atendimentos"
+        body={servicesText}
+        image="/images/espaco/recepcao.jpg"
+        alt="Recepção da Ubari"
+        imageSide="right"
+        href="/atendimentos/adultos"
+        cta="Ver atendimentos"
+      />
+      <SplitBand
+        id="personalizacao"
+        title="Personalização"
+        body={`Aqui, o que você precisa se transforma no cuidado que você recebe. ${howText}`}
+        image="/images/equipe/psicologa.jpg"
+        alt="Profissional da equipe Ubari"
+        imageSide="left"
+        href="/agendar"
+        cta="Agendar sessão"
+      />
       <Differentials />
       <SpaceGallery />
       <Credentials />
-      <BlogPreview />
-      <FaqSection />
-      <ContactCta />
     </>
   );
 }
